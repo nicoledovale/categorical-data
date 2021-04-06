@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 30 20:10:49 2021
+
+@author: nicole
+"""
+
+import pandas as pd
+import numpy as np
+import copy
+import category_encoders as ce
+
+hashes_fd = pd.read_csv('hashes-flower-dog-1360.csv')
+
+hashes_fd.head()
+print(hashes_fd.head())
+
+hashes_fd_ce = hashes_fd.copy()
+
+encoder = ce.BackwardDifferenceEncoder(cols=['hash'])
+df_bd = encoder.fit_transform(hashes_fd_ce)
+
+df_bd.head()
+print(df_bd.head())
+
+df_bd.to_csv('df_backward_difference_1360.csv', index=False)
