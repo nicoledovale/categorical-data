@@ -11,7 +11,7 @@ import numpy as np
 import copy
 import category_encoders as ce
 
-hashes_fd = pd.read_csv('hashes-flower-dog-1360.csv')
+hashes_fd = pd.read_csv('hashes-edit.csv')
 
 hashes_fd.head()
 print(hashes_fd.head())
@@ -24,4 +24,4 @@ df_bd = encoder.fit_transform(hashes_fd_ce)
 df_bd.head()
 print(df_bd.head())
 
-df_bd.to_csv('df_backward_difference_1360.csv', index=False)
+df_bd.to_csv('hashes_backward_difference_edit.csv', index=False)
